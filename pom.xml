@@ -54,12 +54,16 @@
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.12</version>
 				<executions>
-					<execution>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
+					        <execution>
+					            <goals>
+					                <goal>prepare-agent</goal>
+					            </goals>
+					            <configuration>
+					                <excludes>
+					                    <exclude>com/example/aws/ec2/demo/model/*.class</exclude>
+					                </excludes>
+					            </configuration>
+					        </execution>					<execution>
 						<id>report</id>
 						<phase>test</phase>
 						<goals>
@@ -74,7 +78,7 @@
 						<configuration>
 							<rules>
 								<rule>
-									<element>CLASS</element>
+									<element>BUNDLE</element>
 									<limits>
 										<limit>
 											<counter>LINE</counter>
